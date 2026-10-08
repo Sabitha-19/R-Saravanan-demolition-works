@@ -1,0 +1,8 @@
+{
+  "name": "Remix R. Saravanan Demolition Works",
+  "description": "Architectural-grade precision demolition services across Chennai, Puducherry, Vellore, and Arni by R. Saravanan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

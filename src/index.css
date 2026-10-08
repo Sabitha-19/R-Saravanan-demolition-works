@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-black: #0A0908;
+    --card-charcoal: #14110E;
+    --border-bronze: #2A241D;
+    --accent-gold: #B8873F;
+    --text-white: #F5F1EA;
+    --text-muted: #9C948A;
+  }
+
+  body {
+    font-family: 'Familjen Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #0A0908;
+    color: #9C948A;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Unbounded', -apple-system, BlinkMacSystemFont, sans-serif;
+    text-transform: uppercase;
+  }
+}
+
+/* Fine animated film-grain / noise overlay across the whole site */
+.film-grain {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.85;
+}
+
+/* Bronze-toned monochrome sepia treatment with sharp rectangles */
+.bronze-image {
+  border-radius: 0px !important;
+  filter: sepia(0.65) contrast(1.15) brightness(0.82) hue-rotate(-15deg);
+  transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .bronze-image,
+.bronze-image:hover {
+  filter: sepia(0.2) contrast(1.05) brightness(0.95);
+}
+
+/* Vignette gradients that fade images into black */
+.vignette-bottom {
+  background: linear-gradient(to top, #0A0908 0%, rgba(10, 9, 8, 0.6) 40%, transparent 100%);
+}
+
+.vignette-all {
+  box-shadow: inset 0 0 90px rgba(10, 9, 8, 0.85);
+}
+
+/* Section Progress Divider Line */
+.section-divider {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background-color: #2A241D;
+}
+
+/* Diagonal arrow animation */
+.arrow-hover {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .arrow-hover,
+a:hover .arrow-hover,
+button:hover .arrow-hover {
+  transform: translate(2px, -2px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0908;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A241D;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8873F;
+}
